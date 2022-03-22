@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
 #define YES cout << "YES\n"
 #define NO cout << "NO\n"
+#define pb push_back
 #define endl "\n"
 #define int long long
 typedef long long ll;
@@ -15,6 +17,10 @@ const int MAXN = 10000001;
 int spf[MAXN];
 int fact[N], invfact[N];
 using namespace std;
+using namespace __gnu_pbds;
+typedef tree<int, null_type, less<int>, rb_tree_tag,
+             tree_order_statistics_node_update>
+    ordered_set;
 /*
 
 AUTHOR: 
@@ -39,6 +45,12 @@ $$ |     \$$$$$$$ |$$ |      $$ |$$ | \$$\ $$ |  $$ |
 \__|      \_______|\__|      \__|\__|  \__|\__|  \__|
                                                      
 */
+void printVec(vector<void *> v) {
+  for (auto x : v) {
+    cout << x << " ";
+  }
+    cout << endl;
+}
 
 bool is_prime(ll n)
 {
@@ -147,6 +159,10 @@ int getFactorization(int x)
     }
     return ret;
 }
+/* int dx[] = {1,-1,0,0} , dy[] = {0,0,1,-1}; */ // 4 Direction
+/* int dx[] = {1,-1,0,0,1,1,-1,-1} , dy[] = {0,0,1,-1,1,-1,1,-1}; */ // 8 Direction
+/* int dx[] = {1,-1,1,-1,2,2,-2,-2} , dy[] = {2,2,-2,-2,1,-1,1,-1}; */ // Knight Direction
+/* int dx[] = {2,-2,1,1,-1,-1} , dy[] = {0,0,1,-1,1,-1}; */ // Hexagonal Direction
 
 void solve(int in)
 {
@@ -162,6 +178,8 @@ int32_t main()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
+    // freopen("input.txt", "r", stdin);
+    // freopen("output.txt", "w", stdout);
     int t = 1;
     cin >> t;
     forp(i, 1, t + 1)
